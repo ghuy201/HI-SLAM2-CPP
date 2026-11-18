@@ -2,11 +2,12 @@
 
 #include <iostream>
 
-#include <hislam/config.hpp>
+#include <hislam/config/config.hpp>
 namespace hislam::tracking {
 class Frontend {
 public:
-  Frontend(const Config &config);
+  using HiConfig = config::Config;
+  Frontend(const HiConfig &config);
   void sayHello() { std::cout << "Hi from hi-slam" << "\n"; }
 
 private:

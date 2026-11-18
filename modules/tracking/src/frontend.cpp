@@ -1,7 +1,7 @@
 #include <hislam/tracking/frontend.hpp>
 
 namespace hislam::tracking {
-Frontend::Frontend(const Config &config) {
+Frontend::Frontend(const HiConfig &config) {
 
 };
 }

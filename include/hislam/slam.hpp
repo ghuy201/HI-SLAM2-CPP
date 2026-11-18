@@ -1,12 +1,21 @@
 #pragma once
 
-#include <hislam/config.hpp>
+#include <hislam/config/config.hpp>
 #include <memory>
+#include <opencv2/opencv.hpp>
 
 namespace hislam {
+
+struct ImageFrame {
+  cv::Mat image;
+  double timestamp;
+};
+
 class Slam {
 public:
-  explicit Slam(const Config &config);
+  using HiConfig = config::Config;
+
+  explicit Slam(const HiConfig &config);
   ~Slam();
 
   Slam(const Slam &) = delete;
@@ -16,7 +25,7 @@ public:
   Slam &operator=(const Slam &&) = delete;
 
   void start();
-  void track();
+  void track(const ImageFrame &frame);
   void terminate();
   void saveTrajectory(const std::string &path);
   void saveMap(const std::string &path);
