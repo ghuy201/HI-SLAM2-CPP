@@ -9,6 +9,7 @@ public:
   using HiConfig = config::Config;
   Frontend(const HiConfig &config);
   void sayHello() { std::cout << "Hi from hi-slam" << "\n"; }
+  void process(bool is_last);
 
 private:
 };

@@ -38,6 +38,7 @@ torch::Tensor MotionFilter::normaliseImage(const torch::Tensor &image) {
   auto inputs = image.unsqueeze(0).to(device_, torch::kFloat32).div(255.0f);
   return (inputs - mean_) / std_;
 };
+
 void MotionFilter::track(const ImageFrame &frame,
                          std::optional<torch::Tensor> intrinsics,
                          bool is_last) {

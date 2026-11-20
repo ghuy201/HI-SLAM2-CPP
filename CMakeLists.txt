@@ -36,6 +36,7 @@ find_package(yaml-cpp CONFIG REQUIRED)
 add_subdirectory(modules/config)
 add_subdirectory(modules/tracking)
 add_subdirectory(modules/neural)
+add_subdirectory(modules/logging)
 
 add_library(hislam STATIC
     src/slam.cpp
@@ -57,6 +58,7 @@ target_link_libraries(hislam
         hislam::config
         hislam::tracking
         hislam::neural
+        hislam::logging
         gtsam
         ${OpenCV_LIBS}
         ${TORCH_LIBRARIES}
