@@ -1,6 +1,7 @@
 #include <filesystem>
 #include <hislam/config/config.hpp>
 #include <hislam/slam.hpp>
+#include <hislam/tracking/common.hpp>
 #include <iostream>
 #include <opencv2/opencv.hpp>
 
@@ -14,6 +15,6 @@ int main(int argc, char **argv) {
   Slam slam{cfg};
   for (auto i{0uz}; i < 100; ++i) {
     cv::Mat new_img = cv::Mat::zeros(cv::Size(640, 480), CV_8UC1);
-    slam.track(hislam::ImageFrame{new_img, 0.0});
+    slam.track(hislam::tracking::ImageFrame{new_img, 0.0});
   };
 }

@@ -12,10 +12,10 @@ class Slam::Impl {
 public:
   explicit Impl(const HiConfig &config)
       : frontend_(config), backend_(config) {};
-  void track(const ImageFrame &frame) { images_.push_back(frame); };
+  void track(const tracking::ImageFrame &frame) { images_.push_back(frame); };
 
 private:
-  using ImageVector = std::vector<ImageFrame>;
+  using ImageVector = std::vector<tracking::ImageFrame>;
   tracking::Frontend frontend_;
   tracking::Backend backend_;
   ImageVector images_;
@@ -28,5 +28,5 @@ Slam::~Slam() {
 
 };
 
-void Slam::track(const ImageFrame &frame) { pImpl_->track(frame); }
+void Slam::track(const tracking::ImageFrame &frame) { pImpl_->track(frame); }
 } // namespace hislam
